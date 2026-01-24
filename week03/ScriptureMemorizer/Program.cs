@@ -3,7 +3,6 @@ The program randomly selects one scripture from this library to present to the u
 
 using System;
 using System.Collections.Generic;
-
 class Program
 {
     static void Main(string[] args)
@@ -18,7 +17,6 @@ class Program
         Random random = new Random();
         int index = random.Next(scriptureLibrary.Count);
         Scripture selectedScripture = scriptureLibrary[index];
-
         while (true)
         {
             Console.Clear();
@@ -37,7 +35,6 @@ class Program
             {
                 break;
             }
-
             selectedScripture.HideRandomWords(3);
         }
     }
