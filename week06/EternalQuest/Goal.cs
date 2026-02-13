@@ -1,4 +1,5 @@
 using System;
+
 public abstract class Goal
 {
     protected string _shortName;
@@ -11,6 +12,7 @@ public abstract class Goal
         _description = description;
         _points = points;
     }
+
     public abstract void RecordEvent();
     public abstract bool IsComplete();
     
@@ -23,6 +25,7 @@ public abstract class Goal
         }
         return $"{checkbox} {_shortName} ({_description})";
     }
+
     public abstract string GetStringRepresentation();
     
     public string GetName()

@@ -1,22 +1,25 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+
 public class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
+
     public GoalManager()
     {
         _goals = new List<Goal>();
         _score = 0;
     }
+
     public void Start()
     {
         bool quit = false;
         while (!quit)
         {
-            Console.WriteLine();
-            Console.WriteLine($"You have {_score} points.");
+            DisplayPlayerInfo();
+            
             Console.WriteLine();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("  1. Create New Goal");
@@ -26,6 +29,7 @@ public class GoalManager
             Console.WriteLine("  5. Record Event");
             Console.WriteLine("  6. Quit");
             Console.Write("Select a choice from the menu: ");
+            
             string choice = Console.ReadLine();
 
             if (choice == "1")
@@ -57,7 +61,11 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
+        Console.WriteLine();
         Console.WriteLine($"You have {_score} points.");
+        
+        int level = (_score / 1000) + 1;
+        Console.WriteLine($"You are currently Level {level}!");
     }
 
     public void ListGoalDetails()
@@ -107,6 +115,7 @@ public class GoalManager
             _goals.Add(newGoal);
         }
     }
+
     public void RecordEvent()
     {
         ListGoalDetails();
@@ -132,6 +141,7 @@ public class GoalManager
             Console.WriteLine($"You now have {_score} points.");
         }
     }
+
     public void SaveGoals()
     {
         Console.Write("What is the filename for the goal file? ");
@@ -146,6 +156,7 @@ public class GoalManager
             }
         }
     }
+
     public void LoadGoals()
     {
         Console.Write("What is the filename for the goal file? ");

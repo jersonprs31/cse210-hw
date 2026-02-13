@@ -1,4 +1,5 @@
 using System;
+
 public class ChecklistGoal : Goal
 {
     private int _amountCompleted;
@@ -11,10 +12,12 @@ public class ChecklistGoal : Goal
         _target = target;
         _bonus = bonus;
     }
+
     public override void RecordEvent()
     {
         _amountCompleted++;
     }
+
     public override bool IsComplete()
     {
         return _amountCompleted >= _target;
@@ -29,10 +32,12 @@ public class ChecklistGoal : Goal
         }
         return $"{checkbox} {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
     }
+
     public override string GetStringRepresentation()
     {
         return $"ChecklistGoal:{_shortName},{_description},{_points},{_bonus},{_target},{_amountCompleted}";
     }
+
     public int GetBonus()
     {
         return _bonus;
